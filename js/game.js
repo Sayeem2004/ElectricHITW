@@ -1,0 +1,11 @@
+function end_game() {
+    // Initial url
+    var parts = document.location.href.split("/");
+    parts.pop();
+    var url = parts.join("/") + "/home.html";
+
+    // Adding to url
+
+    // Moving to next screen
+    document.location.href = url;
+}
