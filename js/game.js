@@ -6,8 +6,12 @@ function load_game() {
     // Setting canvas and field size
     const canvas = document.getElementById('canvas');
     const field = document.getElementById('field');
-    // canvas.width = window.innerWidth * .88;
-    // canvas.height = window.innerHeight * .88;
+    canvas.width = window.innerWidth * .88;
+    canvas.height = window.innerHeight * .88;
+    var circ =  new Circle(100, 100, 10, 'red');
+    circ.draw();
+    var point = new Point(circ.perimeter[0][0], circ.perimeter[0][1]);
+    point.draw();
 }
 
 function end_game() {
