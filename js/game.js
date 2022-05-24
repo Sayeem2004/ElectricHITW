@@ -1,3 +1,15 @@
+window.onload = function() {
+    load_game();
+};
+
+function load_game() {
+    // Setting canvas and field size
+    const canvas = document.getElementById('canvas');
+    const field = document.getElementById('field');
+    // canvas.width = window.innerWidth * .88;
+    // canvas.height = window.innerHeight * .88;
+}
+
 function end_game() {
     // Initial url
     var parts = document.location.href.split("/");
