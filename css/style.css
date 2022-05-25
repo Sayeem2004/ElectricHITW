@@ -7,35 +7,41 @@ body {
 }
 
 div.box {
-    border-radius: 25px;
-    border: 5px solid #000000;
+    border-radius: 1vw;
+    border: 0.75vmin solid #000000;
     background-color: #202020;
-    max-width: 90%;
+    max-width: 90vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     align-content: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 div.field {
-    border: 5px solid #000000;
+    border: 0.75vmin solid #000000;
     background-color: #202020;
-    width: 90%;
-    height: 80%;
+    width: 90vw;
+    height: 85vh;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     align-content: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 p {
     color: #FFFFFF;
     font-family: serpentine;
+    font-size: 2.5vmin;
 }
 
 h1 {
     color: #FFFFFF;
     font-family: serpentine;
+    font-size: 5vmin;
 }
 
 @font-face {

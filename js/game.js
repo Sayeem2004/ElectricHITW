@@ -1,3 +1,5 @@
+// Class imports
+
 window.onload = function() {
     load_game();
 };
@@ -8,10 +10,10 @@ function load_game() {
     const field = document.getElementById('field');
     canvas.width = window.innerWidth * .88;
     canvas.height = window.innerHeight * .88;
+
+    // Testing stuff
     var circ =  new Circle(100, 100, 10, 'red');
-    circ.draw();
-    var point = new Point(circ.perimeter[0][0], circ.perimeter[0][1]);
-    point.draw();
+    circ.draw(canvas);
 }
 
 function end_game() {

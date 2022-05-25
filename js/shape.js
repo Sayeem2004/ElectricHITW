@@ -1,4 +1,3 @@
-// This is where all the object/sprite classes will go (ie do your work here)
 class Square {
     // Size, position, color
     var sz = ;
@@ -10,8 +9,8 @@ class Point {
     constructor(x, y) {
         this.x = x
         this.y = y
-
     }
+
     draw() {
         c.beginpath()
         c.arc(this.x, this.y, 1, 0, 360, false)
@@ -20,19 +19,23 @@ class Point {
     }
 }
 
+
+// Class for drawing circles on the screen
 class Circle {
-    var perimeter = [(100, 100), ]
+    // Constructor method
     constructor(x, y, radius, color) {
         this.x = x
         this.y = y
         this.radius = radius
         this.color = color
     }
-    draw(c) {
-        c.beginPath()
-        c.arc(this.x, this.y, this.radius, 0 , 360, false)
-        c.fillStyle = this.color
-        c.fill()
+
+    // Draw method
+    draw(canvas) {
+        canvas.beginPath()
+        canvas.arc(this.x, this.y, this.radius, 0 , 360, false)
+        canvas.fillStyle = this.color
+        canvas.fill()
     }
 }
 
