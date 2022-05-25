@@ -10,6 +10,22 @@ class Square {
 // to import sprites
     // import ---- from
 
+class Star {
+
+let {Sprite} = Star1
+let image = new Image();
+image.src = 'assets/star.png'
+image.onload = function() {
+    let sprite = Sprite({
+        x: 188
+        y: 89
+        anchor: {x: 0.5, y: 0.5}
+        image: image
+    })
+    // sprite.render()
+}
+}
+
 
 class Point {
     constructor(x, y) {
@@ -17,11 +33,11 @@ class Point {
         this.y = y
     }
 
-    draw() {
-        c.beginpath()
-        c.arc(this.x, this.y, 1, 0, 360, false)
-        c.fillStyle = 'blue';
-        c.fill()
+    draw(context) {
+        context.beginpath()
+        context.arc(this.x, this.y, 1, 0, 360, false)
+        context.fillStyle = 'blue';
+        context.fill()
     }
 }
 
@@ -37,15 +53,13 @@ class Circle {
     }
 
     // Draw method
-    draw(canvas) {
-        canvas.beginPath()
-        canvas.arc(this.x, this.y, this.radius, 0 , 360, false)
-        canvas.fillStyle = this.color
-        canvas.fill()
+    draw(context) {
+        context.beginPath()
+        context.arc(this.x, this.y, this.radius, 0 , 360, false)
+        context.fillStyle = this.color
+        context.fill()
     }
 }
-const Circle = new Circle (100, 100, 5, 'red')
-player.draw()
 
 
 class Rectangle {
@@ -58,14 +72,12 @@ class Rectangle {
         this.height = 40
     }
 
-    draw(canvas) {
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height)
-        ctx.fillStyle = 'green'
+    draw(context) {
+        context.fillRect(this.position.x, this.position.y, this.width, this.height)
+        context.fillStyle = 'green'
     }
 }
-const Rectangle = new Rectangle()
-Rectangle.draw()
-// For above, is it Rectangle.draw or player.draw (if latter, change all below classes)
+
 
 class Sqaure {
     constructor() {
@@ -76,13 +88,11 @@ class Sqaure {
         this.length = 16
     }
 
-    draw(canvas) {
-        ctx.fillRect(this.position.x, this.position.y, this.length, this.length)
-        ctx.fillStyle = 'orange'
+    draw(context) {
+        context.fillRect(this.position.x, this.position.y, this.length, this.length)
+        context.fillStyle = 'orange'
     }
 }
-const Square = new Square()
-Square.draw()
 
 
 class ComplexPolygon {
@@ -91,12 +101,10 @@ class ComplexPolygon {
     Xcenter = 10
     Ycenter = 10
 
-    ctx.beginpath()
-    ctx.moveTo (Xcenter + Math.cos(0) * scalar, Ycenter + Math.sin(0) * scalar)
+    context.beginpath()
+    context.moveTo (Xcenter + Math.cos(0) * scalar, Ycenter + Math.sin(0) * scalar)
     for (var i = 1; i <= SideCount; i += 1) {
-        ctx.lineTo (Xcenter + Math.cos(2 * Math.pi * i / SideCOunt) * scalar, Ycenter + Math.sin(2 * Math.Pi * i /SideCount) * scalar)
-        ctx.fillStyle = 'purple'
+        context.lineTo (Xcenter + Math.cos(2 * Math.pi * i / SideCount) * scalar, Ycenter + Math.sin(2 * Math.Pi * i /SideCount) * scalar)
+        context.fillStyle = 'purple'
     }
 }
-
-ComplexPolygon.draw()
