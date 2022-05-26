@@ -1,30 +1,51 @@
 // Global variables
-var canvas, context, field;
-var charge_mode;
+var canvas, context, field, cx, cy;
+var electron, proton;
 
 // Onload function
 window.onload = function() {
+    // Rendering canvas
+    render_canvas();
+
+    // Image variable declarations
+    electron = document.getElementById('electron');
+    proton = document.getElementById('proton');
+
     load_screen();
 };
 
-// Setting up screen
-function load_screen() {
-    // Setting canvas, context, and field variables
+// Function that renders the canvas
+function render_canvas() {
+    // Variable declaration
     canvas = document.getElementById('canvas');
-    field = document.getElementById('field');
-    context = canvas.getContext('2d');
+    var originalHeight = canvas.height;
+    var originalWidth = canvas.width;
 
-    let electron = new Electron(canvas.width/2, canvas.height/2, 3);
-    electron.draw(context);
+    // Rescaling canvas
+    var dimensions = getObjectFitSize(true, canvas.clientWidth, canvas.clientHeight, canvas.width, canvas.height);
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = dimensions.width * dpr;
+    canvas.height = dimensions.height * dpr;
+
+    // Other variable declaration
+    context = canvas.getContext('2d');
+    field = document.getElementById('field');
+    cx = canvas.width/2;
+    cy = canvas.height/2;
 }
 
-// // Setting up clicking
-// addEventListener('click',
-//     (event) => {
-//         var clump = new Circle(event.clientX, event.clientY, 100, 'blue')
-//
-//     }
-// );
+// Setting up screen
+function load_screen() {
+    // Setting up square class
+    var square = new Square(cx, cy, 200, 1.05, canvas);
+    square.draw(context);
+    square.draw_outline(context);
+
+    // Setting up circle class
+    // var circle = new Circle(cx, cy, 200, 1.05, canvas);
+    // circle.draw(context);
+    // circle.draw_outline(context);
+}
 
 // Going back to home page
 function end_game() {

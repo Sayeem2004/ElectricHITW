@@ -21,7 +21,7 @@ div.box {
 
 div.field {
     border: 0.75vmin solid #000000;
-    background-color: #FFFFFF;
+    background-color: #202020;
     width: 90vw;
     height: 85vh;
     margin-left: auto;
@@ -47,4 +47,12 @@ h1 {
 @font-face {
     font-family: serpentine;
     src: url(../assets/serpentine.ttf);
+}
+
+img {
+    display: none;
+}
+
+canvas {
+    object-fit: contain;
 }
