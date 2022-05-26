@@ -21,12 +21,114 @@
 // }
 // }
 
+class Star {
+
+let {Sprite} = Star1
+let image = new Image();
+image.src = 'assets/star.png'
+image.onload = function() {
+    let sprite = Sprite({
+        x: 188
+        y: 89
+        anchor: {x: 0.5, y: 0.5}
+        image: image
+    })
+    // sprite.render()
+}
+}
+
+
+class Mario1 {
+
+let {Sprite} = Mario11
+let image = new Image();
+image.src = 'assets/basicmario1.png'
+image.onload = function() {
+    let sprite = Sprite({
+        x: 488
+        y: 489
+        anchor: {x: 0.5, y: 0.5}
+        image: image
+    })
+    // sprite.render()
+}
+}
+
+
+class Mario2 {
+
+let {Sprite} = Mario12
+let image = new Image();
+image.src = 'assets/basicmario2.png'
+image.onload = function() {
+    let sprite = Sprite({
+        x: 688
+        y: 689
+        anchor: {x: 0.5, y: 0.5}
+        image: image
+    })
+    // sprite.render()
+}
+}
+
+
+class Mario3 {
+
+let {Sprite} = Mario13
+let image = new Image();
+image.src = 'assets/basicmario3.png'
+image.onload = function() {
+    let sprite = Sprite({
+        x: 418
+        y: 419
+        anchor: {x: 0.5, y: 0.5}
+        image: image
+    })
+    // sprite.render()
+}
+}
+
+
 class Electron {
-    // Constructor method
-    constructor(x, y, radius) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
+    constructor() {
+
+    }
+    let {Sprite} = Electron1
+    let image = new Image();
+    image.src = 'assets/electron1.png'
+    image.onload = function() {
+        let sprite = Sprite({
+            x: 288
+            y: 289
+            anchor: {x: 0.5, y: 0.5}
+            image: image
+        })
+        // sprite.render()
+}
+}
+
+
+class Proton {
+
+    let {Sprite} = Proton1
+    let image = new Image();
+    image.src = 'assets/proton1.png'
+    image.onload = function() {
+        let sprite = Sprite({
+            x: 388
+            y: 389
+            anchor: {x: 0.5, y: 0.5}
+            image: image
+        })
+        // sprite.render()
+}
+}
+
+
+class Point {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
     }
 
     // Draw method
