@@ -1,28 +1,37 @@
-// Class imports
+// Global variables
+var canvas, context, field;
+var charge_mode;
 
+// Onload function
 window.onload = function() {
-    load_game();
+    load_screen();
 };
 
-function load_game() {
-    // Setting canvas and field size
-    const canvas = document.getElementById('canvas');
-    const field = document.getElementById('field');
-    canvas.width = window.innerWidth * .88;
-    canvas.height = window.innerHeight * .88;
+// Setting up screen
+function load_screen() {
+    // Setting canvas, context, and field variables
+    canvas = document.getElementById('canvas');
+    field = document.getElementById('field');
+    context = canvas.getContext('2d');
 
-    // Testing stuff
-    var circ =  new Circle(100, 100, 10, 'red');
-    circ.draw(canvas);
+    let electron = new Electron(canvas.width/2, canvas.height/2, 3);
+    electron.draw(context);
 }
 
+// // Setting up clicking
+// addEventListener('click',
+//     (event) => {
+//         var clump = new Circle(event.clientX, event.clientY, 100, 'blue')
+//
+//     }
+// );
+
+// Going back to home page
 function end_game() {
     // Initial url
     var parts = document.location.href.split("/");
     parts.pop();
     var url = parts.join("/") + "/home.html";
-
-    // Adding to url
 
     // Moving to next screen
     document.location.href = url;
