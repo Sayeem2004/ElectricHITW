@@ -1,5 +1,6 @@
 // Global variables
 const colors = ['blue', 'red', 'yellow', 'purple', 'orange', 'green', 'magenta', 'pink', 'brown', 'cyan', 'violet', 'white'];
+const epsilon = 0.00000000000885;
 
 // Adapted from: https://www.npmjs.com/package/intrinsic-scale
 function getObjectFitSize(
@@ -76,6 +77,21 @@ class ChargedParticle {
             context.drawImage(proton, this.lx, this.ly, this.radius, this.radius);
         } else if (this.charge < 0) {
             context.drawImage(electron, this.lx, this.ly, this.radius, this.radius);
+        }
+    }
+}
+
+// Function that returns the calculated force between the object and the array of particles
+function calcForce(object, particles) {
+    var netx = 0.0, nety = 0.0;
+    for (var i = 0; i < object.particles.length; i++) {
+        for (var q = 0; q < particles.length; q++) {
+            var charge1 = object.particles[i];
+            var charge2 = particles[i];
+            var dx = charge2.cx - charge1.cx;
+            var dy = charge2.cy - charge1.cy;
+            var ang = Math.arctan(dy / dx);
+            var magnitude =
         }
     }
 }
