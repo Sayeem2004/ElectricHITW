@@ -90,8 +90,12 @@ function calcForce(object, particles) {
             var charge2 = particles[i];
             var dx = charge2.cx - charge1.cx;
             var dy = charge2.cy - charge1.cy;
+            var dist = Math.sqrt(dx*dx + dy*dy);
             var ang = Math.arctan(dy / dx);
-            var magnitude =
+            var magnitude = 1 / (4 * Math.PI * epsilon) * (charge1.charge * charge2.charge / (dist * dist));
+            netx += magnitude * Math.cos(ang);
+            nety += magnitude * Math.sin(ang);
         }
     }
+    return [netx, nety];
 }
