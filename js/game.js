@@ -47,6 +47,25 @@ function load_screen() {
     // circle.draw_outline(context);
 }
 
+// spawning protons and electrons
+// const ChargedParticle = []
+function ChargedParticle () {
+    var circle = new Circle(100, 100, 10, 0.01, canvas)
+    circle.draw(Context)
+    circle.draw_outline(context)
+}
+// don't need code below?
+// addEventListener    
+//    setInterval(() => {
+//        this.x = 100
+//        this.y = 100
+//        this.radius = 10
+//        this.color = 'red'
+//        chargedparticle.push(new chargedparticle())
+//    }, 1000)
+
+//cx, cy, radius, scale, canvas)
+
 // Going back to home page
 function end_game() {
     // Initial url
