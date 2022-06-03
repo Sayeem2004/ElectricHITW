@@ -18,6 +18,39 @@
         <p>Furthermore, there will be an option to adjust the hole's dimensions relative to the object (default will be 1.1x object's dimensions) to make it easier/harder to achieve the objective.</p>
         <p>We can also add random charge distributions to the objects to narrow down the ways to achieve the objective.</p>
         <p>You will also have the option to adjust the TIMED mode to SLOW, NORMAL, and QUICK to increase or decrease difficulty.</p>
+        <p>
+            <form action>
+                <p> Select your gameplay mode:</p>
+                <input type="radio" id="zen"
+            name="gameplay_mode" value="Zen Mode">
+                <label for="zen">Zen Mode</label><br>
+                <input type="radio" id="timed"
+            name="gameplay_mode" value="Timed Mode">
+                <label for="timed">Timed Mode</label><br>
+
+                <p> Select your difficulty mode:</p>
+                <input type="radio" id="easy"
+            name="difficulty_mode" value="Easy Mode">
+                <label for="easy">Easy Mode</label><br>
+                <input type="radio" id="medium"
+            name="difficulty_mode" value="Medium Mode">
+                <label for="medium">Medium Mode</label><br>
+                <input type="radio" id="hard"
+            name="difficulty_mode" value="Hard Mode">
+                <label for="hard">Hard Mode</label><br>
+                <input type="radio" id="freestyle"
+            name="difficulty_mode" value="Freestyle Mode">
+                <label for="freestyle">Freestyle Mode</label><br>
+
+                <br>
+<!sliders for scaling outline>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider"
+                 id="myRange">
+</div>
+<!sliders for friction of surface>        
+                <input type="submit" value="Submit">
+            </form>
     </div>
     <button style="width: 20vw; height: 7vh;" id="button" class="glow-on-hover" type="button" onclick="switch_to_game()">START GAME</button>
 </body>

@@ -58,7 +58,7 @@ function load_screen() {
 addEventListener('click', (event) =>
 {
     const circ = new Circle (
-        event.ClientX, event.ClientY, 1, 'green', null
+        event.ClientX, event.ClientY, 1, 1.05, canvas
     )
     circ.draw(context)
 });
