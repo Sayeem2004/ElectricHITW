@@ -1,5 +1,5 @@
 // Global variables
-const colors = ['blue', 'red', 'yellow', 'purple', 'orange', 'green', 'magenta', 'pink', 'brown', 'cyan', 'violet', 'white'];
+const colors = [ 'yellow', 'purple', 'orange', 'pink', 'brown', 'cyan', 'violet', 'white'];
 const epsilon = 0.00000000000885;
 
 // Adapted from: https://www.npmjs.com/package/intrinsic-scale

@@ -8,7 +8,7 @@ class Square {
         this.lx = cx - radius;
         this.ly = cy - radius;
         this.side = radius*2;
-        this.color = colors[getRandInt(0, 12)];
+        this.color = colors[getRandInt(0, 8)];
         this.scale = scale;
         this.new_outline();
 
