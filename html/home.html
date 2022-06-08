@@ -13,9 +13,7 @@
     </div>
     <div class="box">
         <h1>Settings</h1>
-        <p>three modes of difficulty: EASY (relatively simple object with no barriers), MEDIUM (relatively simple object with barriers randomly scattered), and HARD (complex shapes and barriers).</p>
-        <p>ZEN and TIMED mode, with the former featuring an infinite number of levels and no time limit, and the latter having a finite number of levels to be completed in a set time limit.</p>
-        <p>Adjust the hole's dimensions relative to the object (default will be 1.1x object's dimensions) to make it easier/harder to achieve the objective.</p>
+
         <p>We can also add random charge distributions to the objects to narrow down the ways to achieve the objective.</p>
         <p>You will also have the option to adjust the TIMED mode to SLOW, NORMAL, and QUICK to increase or decrease difficulty.</p>
         <p>
@@ -23,40 +21,73 @@
                 <p> Select your gameplay mode:</p>
                 <input type="radio" id="zen"
             name="gameplay_mode" value="Zen Mode">
-                <label for="zen">Zen Mode</label><br>
+                <label for="zen">Zen Mode (Infinite levels, no time limit)</label><br>
                 <input type="radio" id="timed"
             name="gameplay_mode" value="Timed Mode">
-                <label for="timed">Timed Mode</label><br>
+                <label for="timed">Timed Mode (Infinite levels, time limit)</label>
+
+                <br>
 
                 <p> Select your difficulty mode:</p>
                 <input type="radio" id="easy"
             name="difficulty_mode" value="Easy Mode">
-                <label for="easy">Easy Mode</label><br>
+                <label for="easy">Easy Mode (simple object, no barriers)</label><br>
                 <input type="radio" id="medium"
             name="difficulty_mode" value="Medium Mode">
-                <label for="medium">Medium Mode</label><br>
+                <label for="medium">Medium Mode (simple object, barriers)</label><br>
                 <input type="radio" id="hard"
             name="difficulty_mode" value="Hard Mode">
-                <label for="hard">Hard Mode</label><br>
+                <label for="hard">Hard Mode (complex shapes, barriers)</label><br>
                 <input type="radio" id="freestyle"
             name="difficulty_mode" value="Freestyle Mode">
-                <label for="freestyle">Freestyle Mode</label><br>
+                <label for="freestyle">Freestyle Mode (Customization everything!)</label><br>
 
                 <br>
-<!--nsliders for scaling outline-->
-                <div class="slidecontainer">
+
+<!-sliders for scaling outline-, these sliders should be limited to only freestyle>
+                <div class="slidecontainer1">
                     <p> Scale the Hole Outline:</p>
-                    <input type="range" min="1" max="100" value="10" class="slider"
+                    <input type="range" min="1" max="2" value="1.1" class="slider"
                  id="myRange">
                 </div>
 <!--sliders for friction of surface-->
-                <div class="slidecontainer">
+                <div class="slidecontainer2">
                     <p> Friction of Surface:</p>
                     <input type="range" min="1" max="100" value="0" class="slider"
                  id="myRange">
                 </div>
+<!--sliders for charge distributions(proton and electrons)-->
+                <div class="slidecontainer3">
+                    <p> Charge Distribution:</p>
+                    <input type="range" min="1" max="100" value="50" class="slider"
+                 id="myRange">
                 </div>
+
+                <p> Object Complexity:</p>
+                <input type="radio" id="Simple"
+                name="shape_complexity" value="Simple">
+                <label for="Simple">Simple</label><br>
+
+                <input type="radio" id="Complex"
+                name="shape_complexity" value="Complex">
+                <label for="Complex">Complex</label>
+
                 <br>
+
+                <p> Barriers:</p>
+                <input type="radio" id="NoBarriers"
+                name="BarrierCheck" value="No Barriers">
+                <label for="NoBarriers">No Barriers</label><br>
+
+                <input type="radio" id="Barrier"
+                name="BarrierCheck" value="Barriers">
+                <label for="Barrier">Barriers</label>
+
+                <br>
+                <br>
+
+                <br>
+
             </form>
     </div>
     <button style="width: 20vw; height: 7vh;" id="button" class="glow-on-hover" type="button" onclick="switch_to_game()">START GAME</button>
