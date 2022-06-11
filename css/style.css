@@ -1,9 +1,27 @@
+a {
+    color: rgb(128, 128, 128);
+    font-family: serpentine;
+    text-decoration: none;
+}
+
+a:active {
+    color: rgb(60, 60, 60);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 body {
     background: url(../assets/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+canvas {
+    object-fit: contain;
 }
 
 div.box {
@@ -31,22 +49,10 @@ div.field {
     margin-bottom: 2vh;
 }
 
-p {
-    color: #FFFFFF;
-    font-family: serpentine;
-    font-size: 2.5vmin;
-}
-
-label {
-    color: #FFFFFF;
-    font-family: serpentine;
-    font-size: 2.5vmin;
-}
-
-h1 {
-    color: #FFFFFF;
-    font-family: serpentine;
-    font-size: 5vmin;
+div.outline {
+    border: 0.25vmin solid #FFFFFF;
+    margin-left: 20vw;
+    margin-right: 20vw;
 }
 
 @font-face {
@@ -54,10 +60,40 @@ h1 {
     src: url(../assets/serpentine.ttf);
 }
 
+h1 {
+    color: #FFFFFF;
+    font-family: serpentine;
+    font-size: 6vmin;
+}
+
+h3 {
+    color: #FFFFFF;
+    font-family: serpentine;
+    font-size: 4vmin;
+}
+
+iframe {
+    width: 72vw;
+    height: 40.5vw;
+    margin-bottom: 2vh;
+}
+
 img {
     display: none;
 }
 
-canvas {
-    object-fit: contain;
+input[type='radio'] {
+    transform: scale(1.5);
+}
+
+label {
+    color: #FFFFFF;
+    font-family: serpentine;
+    font-size: 3vmin;
+}
+
+p {
+    color: #FFFFFF;
+    font-family: serpentine;
+    font-size: 3vmin;
 }
