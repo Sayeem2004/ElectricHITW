@@ -21,7 +21,7 @@
         <div class="outline">
             <h3>Gameplay Mode</h3>
 
-            <input type="radio" id="zen" name="gameplay_mode">
+            <input type="radio" id="zen" name="gameplay_mode" checked>
             <label for="zen">Zen Mode</label>
             <input type="radio" id="timed" name="gameplay_mode">
             <label for="timed">Timed Mode</label>
@@ -32,18 +32,18 @@
 
             <div id="timed_desc">
                 <p>Limited amount of time to solve levels.</p>
-                <input type="range" name="max_time" id="time_input_id" value="1.0" min="1.0" max="10.0" step="0.1" oninput="max_time_update()">
-                <label for="max_time" id="time_output_id">Maximum time: 01.0 minutes</label>
-                <br><br>
+                <p>
+                    <input type="range" name="max_time" id="time_input_id" value="1.0" min="1.0" max="10.0" step="0.1" oninput="max_time_update()">
+                    <label for="max_time" id="time_output_id">Maximum time: 01.0 minutes</label>
+                </p>
             </div>
-
             <br><br>
         </div>
         <br>
         <div class="outline">
             <h3>Difficulty Mode</h3>
 
-            <input type="radio" name="difficulty_mode" id="easy">
+            <input type="radio" name="difficulty_mode" id="easy" checked>
             <label for="easy">Easy Mode</label>
             <input type="radio" name="difficulty_mode" id="normal">
             <label for="normal">Normal Mode</label>
@@ -54,31 +54,79 @@
 
             <div id="easy_desc">
                 <p>The preset settings are</p>
-                <p>Points awarded for completion: 10</p>
-                <p>Scale of outline: 1.50x</p>
+                <p>Points awarded for completion: 015</p>
+                <p>Scale of outline: 1.55x</p>
+                <p>Magnitude of charge per cluster: 1.00e10^-6 C</p>
+                <p>Object complexity: Simple</p>
+                <p>Randomness of charge distribution: 000%</p>
+                <p>Barriers: Off</p>
+                <p>Rotation: Off</p>
             </div>
 
             <div id="normal_desc">
                 <p>The preset settings are</p>
-                <p>Points awarded for completion: 25</p>
-                <p>Scale of outline: 1.25x</p>
+                <p>Points awarded for completion: 055</p>
+                <p>Scale of outline: 1.30x</p>
+                <p>Magnitude of charge per cluster: 1.50e10^-6 C</p>
+                <p>Object complexity: Normal</p>
+                <p>Randomness of charge distribution: 050%</p>
+                <p>Barriers: On</p>
+                <p>Rotation: Off</p>
             </div>
 
             <div id="hard_desc">
                 <p>The preset settings are</p>
-                <p>Points awarded for completion: 50</p>
-                <p>Scale of outline: 1.10x</p>
+                <p>Points awarded for completion: 090</p>
+                <p>Scale of outline: 1.20x</p>
+                <p>Magnitude of charge per cluster: 2.00e10^-6 C</p>
+                <p>Object complexity: Complex</p>
+                <p>Randomness of charge distribution: 085%</p>
+                <p>Barriers: On</p>
+                <p>Rotation: On</p>
             </div>
 
             <div id="freestyle_desc">
                 <p>The configurable settings are</p>
-                <p>Points awarded for completion: 0-100</p>
-                <input type="range" id="scale_input_id" value="1.05" min="1.05" max="2.00" step="0.01" oninput="scale_update()">
-                <label for="scale_time" id="scale_output_id">Scale of outline: 1.05x</label>
+                <p id="points">Points awarded for completion: 006</p>
+                <p>
+                    <input type="range" name="scale" id="scale_input_id" value="2.00" min="1.05" max="2.00" step="0.01" oninput="scale_update()">
+                    <label for="scale" id="scale_output_id">Scale of outline: 2.00x</label>
+                </p>
+                <p>
+                    <input type="range" name="charge" id="charge_input_id" value="1.0" min="1.0" max="2.5" step="0.01" oninput="charge_update()">
+                    <label for="charge" id="charge_output_id">Magnitude of charge per cluster: 1.00e10^-6</label>
+                </p>
+                <p>
+                    <label>Object complexity:</label>
+                    <input type="radio" name="object_complexity" id="simple" onclick="points_update()" checked>
+                    <label for="simple">Simple</label>
+                    <input type="radio" name="object_complexity" id="norm" onclick="points_update()">
+                    <label for="norm">Normal</label>
+                    <input type="radio" name="object_complexity" id="complex" onclick="points_update()">
+                    <label for="complex">Complex</label>
+                </p>
+                <p>
+                    <input type="range" name="dist" id="dist_input_id" value="0" min="0" max="100" step="1" oninput="dist_update()">
+                    <label for="dist" id="dist_output_id">Randomness of charge distribution: 000%</label>
+                </p>
+                <p>
+                    <label>Barriers</label>
+                    <input type="radio" name="barriers" id="on1" onclick="points_update()">
+                    <label for="on1">On</label>
+                    <input type="radio" name="barriers" id="off1" onclick="points_update()" checked>
+                    <label for="off1">Off</label>
+                </p>
+                <p>
+                    <label>Rotation</label>
+                    <input type="radio" name="rotation" id="on2" onclick="points_update()">
+                    <label for="on2">On</label>
+                    <input type="radio" name="rotation" id="off2" onclick="points_update()" checked>
+                    <label for="off2">Off</label>
+                </p>
             </div>
-
             <br><br>
         </div>
+        <br>
     </div>
     <button style="width: 20vw; height: 7vh;" id="button" class="glow-on-hover" type="button" onclick="switch_to_game()">START GAME</button>
 </body>
