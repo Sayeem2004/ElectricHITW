@@ -3,7 +3,82 @@
     <title>Game</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../css/button.css"/>
+    <script src="../js/util.js"></script>
+    <script src="../js/game.js"></script>
 </head>
 <body>
-
+    <img src="../assets/electron.png" id="electron">
+    <img src="../assets/proton.png" id="proton">
+    <div class="box" id="menu">
+        <h1>Pause Menu</h1>
+        <p id="score">Total Score: 000000</p>
+        <p id="next">Points For Next Completion: 000</p>
+        <p id="time_remaining">Time Remaining: </p>
+        <div class="Row">
+            <div class="Column">
+                <button style="width: 20vw; height: 7vh;" id="button" class="glow-on-hover" type="button" onclick="show_controls()">CONTROLS</button>
+            </div>
+            <div class="Column">
+                <button style="width: 20vw; height: 7vh;" id="button" class="glow-on-hover" type="button" onclick="show_settings()">SETTINGS</button>
+            </div>
+            <div class="Column">
+                <button style="width: 20vw; height: 7vh;" id="button" class="glow-on-hover" type="button" onclick="show_ending()">END GAME</button>
+            </div>
+        </div>
+        <div id="controls" class="outline">
+            <p>Press <u>SPACEBAR</u> to pause or unpause the game.</p>
+            <p>Press <u>LEFTMOUSECLICK</u> to place down a cluster of charged particles.</p>
+            <p>Press <u>LEFTSHIFT</u> or <u>RIGHTSHIFT</u> to change the cluster of particles from electrons to protons and vice versa.</p>
+        </div>
+        <div id="settings" class="outline">
+            <p id="scale_id">Scale of outline: </p>
+            <p id="charge_id">Magnitude of charge per cluster: </p>
+            <p id="complexity_id">Object complexity: </p>
+            <p id="distribution_id">Randomness of charge distribution: </p>
+            <p id="barriers_id">Barriers: </p>
+            <p id="rotation_id">Rotation: </p>
+        </div>
+        <div id="controllable_settings" class="outline">
+            <p>
+                <input type="range" name="scale" id="scale_input_id" value="2.00" min="1.05" max="2.00" step="0.01" oninput="scale_update()">
+                <label for="scale" id="scale_output_id"></label>
+            </p>
+            <p>
+                <input type="range" name="charge" id="charge_input_id" value="1.0" min="1.0" max="2.5" step="0.01" oninput="charge_update()">
+                <label for="charge" id="charge_output_id"></label>
+            </p>
+            <p>
+                <label>Object complexity:</label>
+                <input type="radio" name="object_complexity" id="simple" onclick="complexity = 0; points_update();" checked>
+                <label for="simple">Simple</label>
+                <input type="radio" name="object_complexity" id="norm" onclick="complexity = 1; points_update();">
+                <label for="norm">Normal</label>
+                <input type="radio" name="object_complexity" id="complex" onclick="complexity = 2; points_update();">
+                <label for="complex">Complex</label>
+            </p>
+            <p>
+                <input type="range" name="dist" id="dist_input_id" value="0" min="0" max="100" step="1" oninput="dist_update()">
+                <label for="dist" id="dist_output_id"></label>
+            </p>
+            <p>
+                <label>Barriers</label>
+                <input type="radio" name="barriers" id="on1" onclick="barriers = true; points_update();">
+                <label for="on1">On</label>
+                <input type="radio" name="barriers" id="off1" onclick="barriers = false; points_update();" checked>
+                <label for="off1">Off</label>
+            </p>
+            <p>
+                <label>Rotation</label>
+                <input type="radio" name="rotation" id="on2" onclick="rotation = true; points_update();">
+                <label for="on2">On</label>
+                <input type="radio" name="rotation" id="off2" onclick="rotation = false; points_update();" checked>
+                <label for="off2">Off</label>
+            </p>
+        </div>
+        <div id="ending" class="outline">
+            <p>HOLA2</p>
+        </div>
+        <br><br>
+    </div>
+    <canvas id="canvas"></canvas>
 </body>

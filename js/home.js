@@ -116,6 +116,7 @@ function points_update() {
     sm += (on2.checked ? 20 : 0);
     points.innerHTML = "Points awarded for completion: " + sm.toString().padStart(3, '0');
 }
+
 // Setting up scale slider updating
 function scale_update() {
     // Variable declaration
@@ -180,6 +181,7 @@ function switch_to_game() {
     // Casework
     if (easy.checked) {
         // Easy case
+        url += "mode=" + encodeURIComponent("easy") + "&";
         url += "time=" + encodeURIComponent(zen.checked ? -1 : max_time.value) + "&";
         url += "points=" + encodeURIComponent(15) + "&";
         url += "scale=" + encodeURIComponent(1.55) + "&";
@@ -190,6 +192,7 @@ function switch_to_game() {
         url += "rotation=" + encodeURIComponent("off");
     } else if (normal.checked) {
         // Normal case
+        url += "mode=" + encodeURIComponent("normal") + "&";
         url += "time=" + encodeURIComponent(zen.checked ? -1 : max_time.value) + "&";
         url += "points=" + encodeURIComponent(55) + "&";
         url += "scale=" + encodeURIComponent(1.30) + "&";
@@ -200,6 +203,7 @@ function switch_to_game() {
         url += "rotation=" + encodeURIComponent("off");
     } else if (hard.checked) {
         // Hard case
+        url += "mode=" + encodeURIComponent("hard") + "&";
         url += "time=" + encodeURIComponent(zen.checked ? -1 : max_time.value) + "&";
         url += "points=" + encodeURIComponent(90) + "&";
         url += "scale=" + encodeURIComponent(1.20) + "&";
@@ -211,6 +215,7 @@ function switch_to_game() {
     } else {
         // Freestyle case
         const text = points.textContent;
+        url += "mode=" + encodeURIComponent("freestyle") + "&";
         url += "time=" + encodeURIComponent(zen.checked ? -1 : max_time.value) + "&";
         url += "points=" + encodeURIComponent(text.slice(-3)) + "&";
         url += "scale=" + encodeURIComponent(scale.value) + "&";
