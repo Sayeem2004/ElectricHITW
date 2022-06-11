@@ -65,8 +65,6 @@ class ChargedParticle {
         // Property declaration
         this.cx = cx;
         this.cy = cy;
-        this.lx = cx - radius;
-        this.ly = cy - radius;
         this.radius = radius;
         this.charge = charge;
     }
@@ -74,9 +72,9 @@ class ChargedParticle {
     // Draw method
     draw(context) {
         if (this.charge > 0) {
-            context.drawImage(proton, this.lx, this.ly, this.radius, this.radius);
+            context.drawImage(proton, this.cx, this.cy, this.radius, this.radius);
         } else if (this.charge < 0) {
-            context.drawImage(electron, this.lx, this.ly, this.radius, this.radius);
+            context.drawImage(electron, this.cx, this.cy, this.radius, this.radius);
         }
     }
 }

@@ -7,7 +7,7 @@ class Circle {
         this.radius = radius;
         this.color = colors[getRandInt(0, 8)];
         this.scale = scale;
-        this.new_outline();
+        this.new_outline(canvas);
 
         // Setting up perimeter points
         this.perimeter = [];
@@ -24,7 +24,7 @@ class Circle {
     }
 
     // Method to get a new outline position
-    new_outline() {
+    new_outline(canvas) {
         var i = 0;
         while (true) {
             // Making a guess for outline position

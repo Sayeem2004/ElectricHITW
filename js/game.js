@@ -57,10 +57,16 @@ function load_screen() {
 
 addEventListener('click', (event) =>
 {
-    const circ = new Circle (
-        event.ClientX, event.ClientY, 1, 1.05, canvas
-    )
-    circ.draw(context)
+    // Making sure the particle is within the canvas bounds
+    // var x = event.clientX
+    // var y = event.clientY
+    // var mnx = window.innerWidth * .1;
+    // var mxx = window.innerWidth - mnx;
+    // var mny = window.innerHeight * .15;
+    // var mxy = window.innerHeight - mny;
+    const part = new ChargedParticle (event.clientX, event.clientY, 20, -10);
+    console.log(part);
+    part.draw(context);
 });
 
 
