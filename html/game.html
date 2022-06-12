@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css"/>
     <link rel="stylesheet" type="text/css" href="../css/button.css"/>
     <script src="../js/util.js"></script>
+    <script src="../js/shape.js"></script>
     <script src="../js/game.js"></script>
 </head>
 <body>
@@ -27,7 +28,7 @@
         </div>
         <div id="controls" class="outline">
             <p>Press <u>SPACEBAR</u> to pause or unpause the game.</p>
-            <p>Press <u>LEFTMOUSECLICK</u> to place down a cluster of charged particles.</p>
+            <p>Press <u>LEFTMOUSECLICK</u> to place or remove a cluster of charged particles.</p>
             <p>Press <u>LEFTSHIFT</u> or <u>RIGHTSHIFT</u> to change the cluster of particles from electrons to protons and vice versa.</p>
         </div>
         <div id="settings" class="outline">
@@ -76,7 +77,19 @@
             </p>
         </div>
         <div id="ending" class="outline">
-            <p>HOLA2</p>
+            <div id="less">
+                <p>Less than 100 points? Scoff!</p>
+                <img src="../assets/ending1.gif" alt="You're not even trying." class="ending">
+            </div>
+            <div id="between">
+                <p>Between 100 and 250 points? Decent effort!</p>
+                <img src="../assets/ending2.gif" alt="I do applaud the effort." class="ending">
+            </div>
+            <div id="more">
+                <p>More than 250 points? What a tryhard!</p>
+                <img src="../assets/ending3.gif" alt="You're trying to hard." class="ending">
+            </div>
+            <p>Going back to home page in 5 seconds.</p>
         </div>
         <br><br>
     </div>

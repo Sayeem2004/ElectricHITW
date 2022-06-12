@@ -36,7 +36,7 @@ function variable_set() {
         // Variable declarations
         const scale_output_id = document.getElementById("scale_output_id");
         const scale_input_id = document.getElementById("scale_input_id");
-        const charge_output_id = document.getElementById("charge_output_id");
+        const charge_output_id = document.getElementById("charge_output_d");
         const charge_input_id = document.getElementById("charge_input_id");
         const dist_input_id = document.getElementById("dist_input_id");
         const dist_output_id = document.getElementById("dist_output_id");
@@ -65,49 +65,6 @@ function variable_set() {
         barriers_id.innerHTML += (barriers ? "on" : "off");
         rotation_id.innerHTML += (rotation ? "on" : "off");
     }
-}
-
-// Class for representing a charged particle
-class Particle {
-    // Constructor method
-    constructor(x, y, radius, charge) {
-        // Property declarations
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.charge = charge;
-    }
-
-    // Draw method
-    draw() {
-        if (this.charge > 0) {
-            // Proton case
-            context.drawImage(proton, this.x-this.radius, this.y-this.radius, this.radius*2, this.radius*2);
-        } else if (this.charge < 0) {
-            // Electron case
-            context.drawImage(electron, this.x-this.radius, this.y-this.radius, this.radius*2, this.radius*2);
-        }
-    }
-}
-
-// Function that returns the distance between two objects
-function dist(obj1, obj2) {
-    var dx = obj1.x-obj2.x;
-    var dy = obj1.y-obj2.y;
-    return Math.sqrt(dx*dx + dy*dy);
-}
-
-// Function that calculates the minimum distance between an object and an array of object, returning the index of the closest object
-function min_dist(obj, array) {
-    var mn_dist = 1000000, pos = -1;
-    for (var i = 0; i < array.length; i++) {
-        var dst = dist(obj, array[i]);
-        if (mn_dist > dst) {
-            mn_dist = dst;
-            pos = i;
-        }
-    }
-    return {mn_dist, pos};
 }
 
 // Setting up point updating
@@ -215,4 +172,61 @@ function show_ending() {
     controllable_settings.style["display"] = "none";
     settings.style["display"] = "none";
     ending.style["display"] = "block";
+
+    var ending1 = document.getElementById("less");
+    var ending2 = document.getElementById("between");
+    var ending3 = document.getElementById("more");
+    if (total_points < 100) {
+        ending1.style["display"] = "block";
+        ending2.style["display"] = "none";
+        ending3.style["display"] = "none";
+    } else if (total_points < 250) {
+        ending1.style["display"] = "none";
+        ending2.style["display"] = "block";
+        ending3.style["display"] = "none";
+    } else {
+        ending1.style["display"] = "none";
+        ending2.style["display"] = "none";
+        ending3.style["display"] = "block";
+    }
+
+    setTimeout(function() {
+        // Moving to next screen
+        var parts = document.location.href.split("/");
+        parts.pop();
+        var url = parts.join("/") + "/home.html";
+        document.location.href = url;
+    }, 5000);
+}
+
+// Pause function
+function pause() {
+    paused = paused ^ true;
+    if (paused) {
+        // Switching to pause screen
+        menu.style["display"] = "block";
+        canvas.style["display"] = "none";
+
+        // Initial information
+        var score = document.getElementById("score");
+        var next = document.getElementById("next");
+        var time_remaining = document.getElementById("time_remaining");
+        score.innerHTML = "Total Score: " + total_points.toString().padStart(6, "0");
+        next.innerHTML = "Points For Next Completion: " + points.toString().padStart(3, "0");
+        time_remaining.innerHTML = "Time Remaining: " + (max_time == -1 ? "Infinite" : (max_time - time_elapsed)) + " minutes";
+
+        // Other information
+        var controls = document.getElementById("controls");
+        var controllable_settings = document.getElementById("controllable_settings");
+        var settings = document.getElementById("settings");
+        var ending = document.getElementById("ending");
+        controls.style["display"] = "block";
+        controllable_settings.style["display"] = "none";
+        settings.style["display"] = "none";
+        ending.style["display"] = "none";
+    } else {
+        // Switching back to game screen
+        menu.style["display"] = "none";
+        canvas.style["display"] = "block";
+    }
 }
