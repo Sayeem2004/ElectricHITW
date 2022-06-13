@@ -213,7 +213,8 @@ function pause() {
         var time_remaining = document.getElementById("time_remaining");
         score.innerHTML = "Total Score: " + total_points.toString().padStart(6, "0");
         next.innerHTML = "Points For Next Completion: " + points.toString().padStart(3, "0");
-        time_remaining.innerHTML = "Time Remaining: " + (max_time == -1 ? "Infinite" : (max_time - time_elapsed)) + " minutes";
+        var remaining = Math.round((max_time - time_elapsed) * 100) / 100;
+        time_remaining.innerHTML = "Time Remaining: " + (max_time == -1 ? "Infinite" : (remaining == 10 ? "10.00" : remaining.toString().padEnd(2, ".").padEnd(4, "0"))) + " minutes";
 
         // Other information
         var controls = document.getElementById("controls");

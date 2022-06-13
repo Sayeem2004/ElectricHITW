@@ -56,7 +56,34 @@ function animate() {
             completed = false;
             create_level();
         }
+        update_time();
     }
+}
+
+// Function to update time remaining on the screen
+function update_time() {
+    // Updating time
+    if (max_time == -1) {
+        var text = "Time Remaining: Infinite Minutes";
+    } else {
+        var text = "Time Remaining: ";
+        time_elapsed += 1.0 / 3600;
+        console.log(time_elapsed, max_time);
+        var remaining = Math.round((max_time - time_elapsed) * 100) / 100;
+        if (remaining <= 0) {
+            pause();
+            show_ending();
+            return;
+        }
+        text += (remaining == 10 ? "10.00" : remaining.toString().padEnd(2, ".").padEnd(4, "0"));
+        text += " Minutes";
+    }
+
+    // Showing time
+    context.beginPath();
+    context.fillStyle = "white";
+    context.font = "30px Serpentine";
+    context.fillText(text, 10, 35);
 }
 
 // Function to get a random int in a range
@@ -112,6 +139,7 @@ function complete_level() {
     total_points += points;
     alert("You have completed this level and gained " + points + " points. Click on OK or press ENTER to go to the next level.");
 }
+
 // Function that returns the calculated force between the object and the array of particles
 function calc_force(object) {
     // Calculating columbs force
