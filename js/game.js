@@ -1,6 +1,6 @@
 // Global variables
 var max_time, mode, points, scale, charge, complexity, distribution, barriers, rotation;
-var time_elapsed, total_points, particles, charge_mode, particle_radius;
+var time_elapsed, total_points, particles, charge_mode, particle_radius, barr = [], barr_radius = 50;
 var canvas, context, cx, cy, paused, menu, object, completed = false, inside = 0;
 const charge_scale = 0.000001, epsilon = 0.00000000000885, mass = 1, time = 1, meter = 10;
 const electron_image = document.getElementById('electron');
@@ -49,6 +49,12 @@ function animate() {
     if (!paused) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         object.update();
+        barr.forEach((barrier) => {
+            context.beginPath();
+            context.arc(barrier[0], barrier[1], barr_radius, 0, Math.PI*2, false);
+            context.fillStyle = barrier[2];
+            context.fill();
+        });
         particles.forEach((particle) => {
             particle.draw();
         });
@@ -122,13 +128,44 @@ function min_dist(obj, array) {
 
 // Function that sets up a game level
 function create_level() {
+    // Emptying particles list
     particles = [];
+
+    // Adding main object
     if (complexity == 0) {
         object = new Circle (cx, cy, 100);
     } else if (complexity == 1) {
         object = (Math.random() < 0.5 ? new Square (cx, cy, 100) : new Triangle (cx, cy, 100));
     } else {
         object = (Math.random() < 0.5 ? new Donut (cx, cy, 100) : new Cross (cx, cy, 100));
+    }
+
+    // Adding barriers
+    barr = []
+    if (barriers) {
+        var num = getRandInt(3, 6);
+        for (var i = 0; i < num; i++) {
+            var q = 0;
+            while (true) {
+                // Making a guess for barrier position
+                var x = getRandInt(barr_radius, canvas.width-barr_radius);
+                var y = getRandInt(barr_radius, canvas.height-barr_radius);
+                var color = colors[getRandInt(0, 8)];
+
+                // Checking to see if it is valid
+                var possible = true;
+                possible = possible && (distc(x, y, object.x, object.y) >= 4*barr_radius);
+                possible = possible && (distc(x, y, object.outx, object.outy) >= 4*barr_radius);
+                for (var r = 0; r < barr.length; r++) {
+                    possible = possible && (distc(x, y, barr[r][0], barr[r][1]) >= 4*barr_radius);
+                }
+                if (possible || q == 1000) {
+                    barr.push([x, y, color]);
+                    break;
+                }
+                q++;
+            }
+        }
     }
 }
 
@@ -138,6 +175,12 @@ function complete_level() {
     completed = true;
     total_points += points;
     alert("You have completed this level and gained " + points + " points. Click on OK or press ENTER to go to the next level.");
+}
+
+// Function that completes a game level from barrier
+function complete_level2() {
+    completed = true;
+    alert("You have failed this level by touching a barrier and gained 0 points. Click on OK or press ENTER to go to the next level.");
 }
 
 // Function that returns the calculated force between the object and the array of particles
@@ -182,7 +225,7 @@ function point_in_poly(p, polygon) {
     // Actual algorithm
     var i = 0, j = polygon.length - 1;
     for (i, j; i < polygon.length; j = i++) {
-        if ( (polygon[i][1] > p[1]) != (polygon[j][1] > p[1]) &&
+        if ((polygon[i][1] > p[1]) != (polygon[j][1] > p[1]) &&
                 p[0] < (polygon[j][0] - polygon[i][0]) * (p[1] - polygon[i][1]) / (polygon[j][1] - polygon[i][1]) + polygon[i][0] ) {
             inside = !inside;
         }

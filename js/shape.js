@@ -146,6 +146,17 @@ class Circle {
                 dy = Math.min(canvas.height-y, dy);
                 revy = true;
             }
+            for (var q = 0; q < barr.length; q++) {
+                for (var r = 0.0; r < 16.0; r++) {
+                    var ang = r / 16.0 * 2 * Math.PI;
+                    var barrx = barr[q][0]+barr_radius*Math.cos(ang);
+                    var barry = barr[q][1]+barr_radius*Math.sin(ang);
+                    if (point_in_poly([barrx, barry], this.vertices)) {
+                        complete_level2();
+                        return;
+                    }
+                }
+            }
         }
         if (revx) this.vx *= -1;
         if (revy) this.vy *= -1;
@@ -299,6 +310,17 @@ class Square {
                 dy = Math.min(canvas.height-y, dy);
                 revy = true;
             }
+            for (var q = 0; q < barr.length; q++) {
+                for (var r = 0.0; r < 16.0; r++) {
+                    var ang = r / 16.0 * 2 * Math.PI;
+                    var barrx = barr[q][0]+barr_radius*Math.cos(ang);
+                    var barry = barr[q][1]+barr_radius*Math.sin(ang);
+                    if (point_in_poly([barrx, barry], this.vertices)) {
+                        complete_level2();
+                        return;
+                    }
+                }
+            }
         }
         if (revx) this.vx *= -1;
         if (revy) this.vy *= -1;
@@ -441,6 +463,17 @@ class Triangle {
             if (y + dy >= canvas.height) {
                 dy = Math.min(canvas.height-y, dy);
                 revy = true;
+            }
+            for (var q = 0; q < barr.length; q++) {
+                for (var r = 0.0; r < 16.0; r++) {
+                    var ang = r / 16.0 * 2 * Math.PI;
+                    var barrx = barr[q][0]+barr_radius*Math.cos(ang);
+                    var barry = barr[q][1]+barr_radius*Math.sin(ang);
+                    if (point_in_poly([barrx, barry], this.vertices)) {
+                        complete_level2();
+                        return;
+                    }
+                }
             }
         }
         if (revx) this.vx *= -1;
@@ -611,6 +644,17 @@ class Donut {
             if (y + dy >= canvas.height) {
                 dy = Math.min(canvas.height-y, dy);
                 revy = true;
+            }
+            for (var q = 0; q < barr.length; q++) {
+                for (var r = 0.0; r < 16.0; r++) {
+                    var ang = r / 16.0 * 2 * Math.PI;
+                    var barrx = barr[q][0]+barr_radius*Math.cos(ang);
+                    var barry = barr[q][1]+barr_radius*Math.sin(ang);
+                    if (point_in_poly([barrx, barry], this.overtices)) {
+                        complete_level2();
+                        return;
+                    }
+                }
             }
         }
         if (revx) this.vx *= -1;
@@ -792,6 +836,17 @@ class Cross {
             if (y + dy >= canvas.height) {
                 dy = Math.min(canvas.height-y, dy);
                 revy = true;
+            }
+            for (var q = 0; q < barr.length; q++) {
+                for (var r = 0.0; r < 16.0; r++) {
+                    var ang = r / 16.0 * 2 * Math.PI;
+                    var barrx = barr[q][0]+barr_radius*Math.cos(ang);
+                    var barry = barr[q][1]+barr_radius*Math.sin(ang);
+                    if (point_in_poly([barrx, barry], this.vertices)) {
+                        complete_level2();
+                        return;
+                    }
+                }
             }
         }
         if (revx) this.vx *= -1;
