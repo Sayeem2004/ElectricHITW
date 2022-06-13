@@ -6,13 +6,11 @@ This game is a two-dimensional version of the popular Japanese game show "Hole i
 
 The user is able to adjust the following:
 - Gameplay mode 
-    - Zen or Timed mode
-        -Total time of Timed mode can be adjusted 
+    - Zen or Timed mode (total time of Timed mode can be adjusted) 
 - Difficulty mode 
     - Hole size 
     - Magnitude of charge per cluster 
-    - Object complexity 
-        -Simple, Normal, and Complex shapes
+    - Object complexity (Simple, Normal, and Complex shapes)
     - Randomness of the charge distribution on the object can be adjusted
     - Presence of barriers 
 
