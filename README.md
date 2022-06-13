@@ -16,7 +16,7 @@ The user is able to adjust the following:
 
 Easy, Normal, and Hard mode will have preset unchangeable settings, but in freestyle mode the user can change settings in the pause menu. Note that these settings will only take effect after the current level is completed. 
 
-Rotation was a potential feature that we did not end up coding, so that will not be present in the game. Also we stated that we would have barriers that restarted the level when touched, we ended up not doing that and instead the barriers just bounce the charged object away.
+Rotation was a potential feature that we did not end up coding, so that will not be present in the game. Also we stated that we would have barriers that restarted the level when touched, we ended up not doing that and instead the barriers just bounce the charged object away. This change was motivated by the fact that it was harder to control the charged object than expected and restarting the level would be too difficult in our opinions. We also said that we would use friction, we decided against that as well because it didn't add much to the game and only made things move slower.  
 
 Once settings are chosen, instructions and commands will be shown to the user. A object and charged distribution will be generated, as well as the hole. The user can then place down and remove charged clumps with left click, change between proton and electron clumps with the shift key, and clear the screen of all placed charges with "c". After completing the objective, a new object and charge distribution, as well as the hole will be generated.
 
