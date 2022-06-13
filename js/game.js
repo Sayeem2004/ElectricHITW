@@ -195,7 +195,7 @@ function calc_force(object) {
             var dy = charge2.y - charge1.y;
             var dist = Math.sqrt(dx*dx + dy*dy) / meter;
             // Making sure we dont have any infinite force errors
-            if (dist < charge1.radius + charge2.radius) continue;
+            if (dist < (charge1.radius + charge2.radius) / meter) continue;
             var ang = Math.atan2(dy, dx);
             var magnitude = -1 / (4 * Math.PI * epsilon) * (charge1.charge * charge2.charge / (dist * dist));
             netx += magnitude * Math.cos(ang);
