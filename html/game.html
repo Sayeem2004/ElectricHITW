@@ -30,6 +30,7 @@
             <p>Press <u>SPACEBAR</u> to pause or unpause the game.</p>
             <p>Press <u>LEFTMOUSECLICK</u> to place or remove a cluster of charged particles.</p>
             <p>Press <u>LEFTSHIFT</u> or <u>RIGHTSHIFT</u> to change the cluster of particles from electrons to protons and vice versa.</p>
+            <p>Press <u>C</u> to clear all clusters of particles from the screen.</p>
         </div>
         <div id="settings" class="outline">
             <p id="scale_id">Scale of outline: </p>
@@ -68,13 +69,7 @@
                 <input type="radio" name="barriers" id="off1" onclick="barriers = false; points_update();" checked>
                 <label for="off1">Off</label>
             </p>
-            <p>
-                <label>Rotation</label>
-                <input type="radio" name="rotation" id="on2" onclick="rotation = true; points_update();">
-                <label for="on2">On</label>
-                <input type="radio" name="rotation" id="off2" onclick="rotation = false; points_update();" checked>
-                <label for="off2">Off</label>
-            </p>
+            <p>Rotation: Off</p>
         </div>
         <div id="ending" class="outline">
             <div id="less">

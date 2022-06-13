@@ -36,7 +36,7 @@ function variable_set() {
         // Variable declarations
         const scale_output_id = document.getElementById("scale_output_id");
         const scale_input_id = document.getElementById("scale_input_id");
-        const charge_output_id = document.getElementById("charge_output_d");
+        const charge_output_id = document.getElementById("charge_output_id");
         const charge_input_id = document.getElementById("charge_input_id");
         const dist_input_id = document.getElementById("dist_input_id");
         const dist_output_id = document.getElementById("dist_output_id");
@@ -60,7 +60,7 @@ function variable_set() {
         // Updating labels
         scale_id.innerHTML += scale.toString().padEnd(2, ".").padEnd(4, "0") + "x";
         charge_id.innerHTML += charge.toString().padEnd(2, ".").padEnd(4, "0") + "e10^-6 C";
-        complexity_id.innerHTML += (complexity == 0 ? "simple" : complexity = 1 ? "normal" : "complex");
+        complexity_id.innerHTML += (complexity == 0 ? "simple" : complexity == 1 ? "normal" : "complex");
         distribution_id.innerHTML += distribution.toString().padStart(3, "0") + "%";
         barriers_id.innerHTML += (barriers ? "on" : "off");
         rotation_id.innerHTML += (rotation ? "on" : "off");

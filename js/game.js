@@ -96,7 +96,13 @@ function min_dist(obj, array) {
 // Function that sets up a game level
 function create_level() {
     particles = [];
-    object = new Circle (cx, cy, 100);
+    if (complexity == 0) {
+        object = new Circle (cx, cy, 100);
+    } else if (complexity == 1) {
+        object = (Math.random() < 0.5 ? new Square (cx, cy, 100) : new Triangle (cx, cy, 100));
+    } else {
+        object = (Math.random() < 0.5 ? new Donut (cx, cy, 100) : new Cross (cx, cy, 100));
+    }
 }
 
 // Function that completes a game level

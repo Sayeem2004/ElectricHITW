@@ -171,7 +171,6 @@ function switch_to_game() {
     const norm = document.getElementById("norm");
     const dist = document.getElementById("dist_input_id");
     const on1 = document.getElementById("on1");
-    const on2 = document.getElementById("on2");
     const easy = document.getElementById("easy");
     const normal = document.getElementById("normal");
     const hard = document.getElementById("hard");
@@ -211,7 +210,7 @@ function switch_to_game() {
         url += "complexity=" + encodeURIComponent("complex") + "&";
         url += "dist=" + encodeURIComponent(85) + "&";
         url += "barriers=" + encodeURIComponent("on") + "&";
-        url += "rotation=" + encodeURIComponent("on");
+        url += "rotation=" + encodeURIComponent("off");
     } else {
         // Freestyle case
         const text = points.textContent;
@@ -223,7 +222,7 @@ function switch_to_game() {
         url += "complexity=" + encodeURIComponent((simple.checked ? "simple" : norm.checked ? "normal" : "complex")) + "&";
         url += "dist=" + encodeURIComponent(dist.value) + "&";
         url += "barriers=" + encodeURIComponent((on1.checked ? "on" : "off")) + "&";
-        url += "rotation=" + encodeURIComponent((on2.checked ? "on" : "off"));
+        url += "rotation=" + encodeURIComponent("off");
     }
 
     // Moving to next screen
