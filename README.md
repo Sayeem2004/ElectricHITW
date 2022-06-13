@@ -5,18 +5,18 @@
 This game is a two-dimensional version of the popular Japanese game show "Hole in the Wall." We utilize Coulomb's law by allowing the user to place clumps of protons and electrons to attract or repel a charged object to move it to a certain place.
 
 The user is able to adjust the following:
-- Gameplay mode 
-    - Zen or Timed mode (total time of Timed mode can be adjusted) 
+- Gameplay mode
+    - Zen or Timed mode (total time of Timed mode can be adjusted)
 - Difficulty mode (Easy, Normal, Hard, Freestyle) which entail the following settings
     - Hole size (compared to object size)
-    - Magnitude of charge per cluster 
+    - Magnitude of charge per cluster
     - Object complexity (Simple, Normal, and Complex shapes)
     - Randomness of the charge distribution on the object can be adjusted (uniform to perfectly random)
     - Presence of barriers
 
-Easy, Normal, and Hard mode will have preset unchangeable settings, but in freestyle mode the user can change settings in the pause menu. Note that these new settings will only take effect after the current level is completed. 
+Easy, Normal, and Hard mode will have preset unchangeable settings, but in freestyle mode the user can change settings in the pause menu. Note that these new settings will only take effect after the current level is completed.
 
-Rotation was a potential feature that we did not end up coding, so that will not be present in the game. Also we stated that we would have barriers that ended the level when touched and that bounced things away, we ended up not doing that and instead the barriers just end the level when touched. This change was motivated by the fact that we wanted there to be more difficulty to the game than just trying to get into the outline, the previous bouncing barriers didn't add much difficulty. We also said that we would use friction, we decided against that as well because it didn't add much to the game and only made things move slower.  
+Rotation was a potential feature that we did not end up coding, so that will not be present in the game. Also we stated that we would have barriers that ended the level when touched and that bounced things away, we ended up not doing that and instead the barriers just end the level when touched. This change was motivated by the fact that we wanted there to be more difficulty to the game than just trying to get into the outline, the previous bouncing barriers didn't add much difficulty. We also said that we would use friction, we decided against that as well because it didn't add much to the game and only made things move slower.
 
 Once settings are chosen, instructions and commands will be shown to the user. A object and charged distribution will be generated, as well as the hole. The user can then place down and remove charged clumps with left click, change between proton and electron clumps with the shift key, and clear the screen of all placed charges with "c". After completing the objective, a new object and charge distribution, as well as the hole will be generated.
 
@@ -24,4 +24,4 @@ If the user is playing in Zen Mode, they may exit by pressing spacebar and press
 
 If at any point, you encounter a bug in which the game will not let you progress past a level, please reload the page. We attempted designed the game in a way that every level is beatable and done a decent amount of testing, however there may be a chance that a level will not be beatable.
 
-This project was coded in CSS, HTML, and JavaScript. 
+This project was coded in CSS, HTML, and JavaScript.

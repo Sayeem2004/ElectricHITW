@@ -77,7 +77,6 @@ function points_update() {
     const norm_id = document.getElementById("norm");
     const dist_id = document.getElementById("dist_input_id");
     const on1_id = document.getElementById("on1");
-    const on2_id = document.getElementById("on2");
 
     // Calculating points and updating label
     var sm = 0;
@@ -86,7 +85,6 @@ function points_update() {
     sm += (simple_id.checked ? 5 : norm_id.checked ? 10 : 15);
     sm += Math.floor(dist_id.value / 10);
     sm += (on1_id.checked ? 20 : 0);
-    sm += (on2_id.checked ? 20 : 0);
     points = sm;
     points_id.innerHTML = "Points awarded for completion: " + sm.toString().padStart(3, '0');
 }

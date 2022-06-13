@@ -104,7 +104,6 @@ function points_update() {
     const norm = document.getElementById("norm");
     const dist = document.getElementById("dist_input_id");
     const on1 = document.getElementById("on1");
-    const on2 = document.getElementById("on2");
 
     // Calculating points and updating label
     var sm = 0;
@@ -113,7 +112,6 @@ function points_update() {
     sm += (simple.checked ? 5 : norm.checked ? 10 : 15);
     sm += Math.floor(dist.value / 10);
     sm += (on1.checked ? 20 : 0);
-    sm += (on2.checked ? 20 : 0);
     points.innerHTML = "Points awarded for completion: " + sm.toString().padStart(3, '0');
 }
 
@@ -204,7 +202,7 @@ function switch_to_game() {
         // Hard case
         url += "mode=" + encodeURIComponent("hard") + "&";
         url += "time=" + encodeURIComponent(zen.checked ? -1 : max_time.value) + "&";
-        url += "points=" + encodeURIComponent(90) + "&";
+        url += "points=" + encodeURIComponent(70) + "&";
         url += "scale=" + encodeURIComponent(1.20) + "&";
         url += "charge=" + encodeURIComponent(2.00) + "&";
         url += "complexity=" + encodeURIComponent("complex") + "&";
